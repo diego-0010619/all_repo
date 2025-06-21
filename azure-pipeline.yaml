@@ -1,0 +1,24 @@
+trigger:
+  branches:
+    include:
+      - release
+      - main
+  paths:
+    exclude:
+      - .azure-pipelines
+      - README.md
+      - azure-pipelines.yml
+
+resources:
+  repositories:
+    - repository: devops_pipeline_ref
+      type: github
+      endpoint: 'NequiGithub'
+      name: NequiTI/devops_pipeline_ref
+      ref: trunk
+
+extends:
+  template: master-extends.yaml@devops_pipeline_ref
+  parameters:
+    infra: 'dags'
+    technology: 'dags'
