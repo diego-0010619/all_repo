@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: gestionfraude_curated
+    description: "Zona curada del dominio gestion fraude"
+    schema: co_delfos_gestionfraude_curated_{{ var("env") }}_rl
+    tables:
+      - name: co_transaccional_fraude
+        description: Tabla de Transacciones reclamdas fraude.
+        tags:
+          - colombia
+          - delfos
+          - gestionfraude

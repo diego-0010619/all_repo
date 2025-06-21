@@ -1,0 +1,6 @@
+version: 2
+
+sources:
+  - name: gestionfraude_analytics
+    description: "Zona analytics del dominio gestion fraude"
+    schema: co_delfos_gestionfraude_analytics_{{ var("env") }}_rl

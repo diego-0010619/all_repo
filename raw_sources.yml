@@ -1,0 +1,75 @@
+version: 2
+
+sources:
+
+  - name: productos_raw
+    description: "Zona con datos crudos del dominio de productos"
+    schema: co_delfos_productos_raw_{{ var("env") }}_rl
+    tables:
+      - name: transaccional_uso
+        description: Tabla de Finacle Transaccional.
+        tags:
+          - colombia
+          - delfos
+          - productos
+          - finacle
+
+  - name: clientes_raw
+    description: "Zona con datos crudos del dominio de productos"
+    schema: co_delfos_clientes_raw_{{ var("env") }}_rl
+    tables:
+      - name: producto_hist
+        description: Tabla con la información histórica del producto del cliente.
+        tags:
+          - colombia
+          - delfos
+          - clientes
+          - producto
+          - hist
+
+  - name: servicio_raw
+    description: "Zona con datos crudos del dominio de servicio"
+    schema: co_delfos_servicio_raw_{{ var("env") }}_rl
+    tables:
+      - name: co_zendesk_flatten_tickets
+        description: "Tabla tipo espejo Sherpa de Zendesk, tabla flatten_tickets."
+        tags:
+          - colombia
+          - sherpa
+          - servicio
+          - zendesk
+
+  - name: gestionfraude_raw
+    description: "Zona con datos crudos del dominio gestion fraude"
+    schema: co_delfos_gestionfraude_datalab_pdn
+    tables:
+      - name: co_internal_carga_manual_apr_cierre
+        description: "Tabla master que contiene los valores de los APR cierres ingestado por el equipo de Operaciones, por carga manual."
+        tags:
+          - colombia
+          - delfos
+          - finacle
+
+
+  - name: gestionfraude_raw_rl
+    description: "Zona con datos crudos del dominio gestion fraude"
+    schema: co_delfos_gestionfraude_raw_{{ var("env") }}_rl
+    tables:
+      - name: co_carga_manual_catalogo_coa
+        description: "Tabla que contiene la información de empleados ingestado por el equipo fraude interno, por carga manual."
+        tags:
+          - colombia
+          - delfos
+          - finacle
+      - name: co_carga_manual_empleados_directos
+        description: "Tabla que contiene la información de empleados directos ingestado por el equipo fraude interno, por carga manual."
+        tags:
+          - colombia
+          - delfos
+          - finacle
+      - name: co_carga_manual_empleados_externos
+        description: "Tabla que contiene la información de empleados xternos ingestado por el equipo fraude interno, por carga manual."
+        tags:
+          - colombia
+          - delfos
+          - finacle
