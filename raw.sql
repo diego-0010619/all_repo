@@ -1,0 +1,53 @@
+SELECT 
+        -- Atributos FIJOS para generar tabla de trx por ticket
+        ticket_id,
+        fields_payload['numero_de_documento'] as numero_documento,
+        fields_payload['cantidad_de_transacciones_reportadas'] as cantidad_transacciones_reportadas,
+        fields_payload['fecha_de_la_transaccion_01'] as fecha_trx_01,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_01'] as tran_id_01,
+        fields_payload['fecha_de_la_transaccion_02'] as fecha_trx_02,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_02'] as tran_id_02,
+        fields_payload['fecha_de_la_transaccion_03'] as fecha_trx_03,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_03'] as tran_id_03,
+        fields_payload['fecha_de_la_transaccion_04'] as fecha_trx_04,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_04'] as tran_id_04,
+        fields_payload['fecha_de_la_transaccion_05'] as fecha_trx_05,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_05'] as tran_id_05,
+        fields_payload['fecha_de_la_transaccion_06'] as fecha_trx_06,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_06'] as tran_id_06,
+        fields_payload['fecha_de_la_transaccion_07'] as fecha_trx_07,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_07'] as tran_id_07,
+        fields_payload['fecha_de_la_transaccion_08'] as fecha_trx_08,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_08'] as tran_id_08,
+        fields_payload['fecha_de_la_transaccion_09'] as fecha_trx_09,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_09'] as tran_id_09,
+        fields_payload['fecha_de_la_transaccion_10'] as fecha_trx_10,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_10'] as tran_id_10,
+        fields_payload['fecha_de_la_transaccion_11'] as fecha_trx_11,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_11'] as tran_id_11,
+        fields_payload['fecha_de_la_transaccion_12'] as fecha_trx_12,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_12'] as tran_id_12,
+        fields_payload['fecha_de_la_transaccion_13'] as fecha_trx_13,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_13'] as tran_id_13,
+        fields_payload['fecha_de_la_transaccion_14'] as fecha_trx_14,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_14'] as tran_id_14,
+        fields_payload['fecha_de_la_transaccion_15'] as fecha_trx_15,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_15'] as tran_id_15,
+        fields_payload['fecha_de_la_transaccion_16'] as fecha_trx_16,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_16'] as tran_id_16,
+        fields_payload['fecha_de_la_transaccion_17'] as fecha_trx_17,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_17'] as tran_id_17,
+        fields_payload['fecha_de_la_transaccion_18'] as fecha_trx_18,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_18'] as tran_id_18,
+        fields_payload['fecha_de_la_transaccion_19'] as fecha_trx_19,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_19'] as tran_id_19,
+        fields_payload['fecha_de_la_transaccion_20'] as fecha_trx_20,
+        fields_payload['referencia_del_movimiento_vista_360deg_tran_id_20'] as tran_id_20,
+        -- Atributos complemento para el requerimiento
+        fields_payload['submodalidad_del_fraude'] as submodalidad_fraude,
+        fields_payload['valor_del_fraude'] as valor_del_fraude      
+FROM {{ database }}.{{ table }}
+WHERE   true
+        AND year IN ('2023','2024')
+        AND ticket_form_label = 'gestion_de_fraude'
+        AND ticket_id IN {{ tuple_ticket_id }}
