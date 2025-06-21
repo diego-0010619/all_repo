@@ -1,0 +1,56 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: "model_gestionfraude_fre_athena"
+version: "1.0.0"
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project (by default).
+profile: 'nequimesh_athena'
+
+# These configurations specify where dbt should look for different types of files.
+# The `model-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+docs-paths: ["docs"]
+
+clean-targets: # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+models:
+  model_gestionfraude_fre_athena:
+    +enabled: true
+    +persist_docs:
+      relation: true
+      columns: true
+
+    curated:
+      fre:
+        enabled: true
+        materialized: table
+
+    analytics:
+      fre:
+        enabled: true
+        materialized: table
+
+        OPC-co_abonos_dobles:
+          +enabled: true
+          +materialized: table
+          tags: [ 'co', 'analytics', 'abonos' ]
+
+# vars:
+  # env: 'pdn'
+  # schema: "{{ var('curated_schema') }}"
+  # s3_data_dir: "{{ var('s3_curated_data_dir') }}"
+  # s3_staging_dir: "{{ var('s3_curated_staging_dir') }}"
+
+
+  packages-install-path: "dbt_packages"

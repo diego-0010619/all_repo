@@ -4,9 +4,37 @@ models:
   - name: co_abonos_dobles
     description: "Tabla descripción."
     columns:
+      - name: nombre_completo
+        description: "Nombre completo de la persona abonada"
+      - name: numero_identificacion
+        description: "Número de documento de identidad del usuario abonado"
+      - name: valor_transaccion
+        description: "Valor transacción abonado"
+      - name: naturaleza_transaccion
+        description: "Tipo de transacción abonada [DEBITO | CREDITO]"
+      - name: codigo_concepto
+        description: "Código de concepto para el abono ['A017' | 'A105' | 'A079' | 'A082' | 'A078']"
+      - name: numero_de_cuenta_restitucion_dinero_fraude
+        description: "Número de cuenta donde se abono el dinero"
+      - name: ticket_id
+        description: "Ticket id donde se reclamo el abono de dinero"
+      - name: numero_producto
+        description: "Número de producto del usuario abonado"
+      - name: fecha_transaccion
+        description: "Fecha transacción del abono"
+      - name: fecha_posteo
+        description: "Fecha de posteo del abono"
+      - name: codigo_rastreo
+        description: "Código de rastreo para conocer el motivo de reclamo del abono"
+      - name: numero_cuenta_contable
+        description: "Cuenta contable de donde salieron los fondos para el abono"
       - name: year
         description: "Año particion"
       - name: month
         description: "Mes particion"
       - name: day
         description: "Día particion"
+      - name: dias_transcurridos
+        description: "Días transcurridos desde el último abono a la fecha actual"
+      - name: execution_date
+        description: "Fecha de ejecución de la consulta"
